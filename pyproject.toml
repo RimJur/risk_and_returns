@@ -9,5 +9,6 @@ dependencies = [
     "ipykernel>=6.29.5",
     "polars>=1.22.0",
     "pyarrow>=19.0.1",
+    "vl-convert-python>=1.7.0",
     "yfinance>=0.2.54",
 ]

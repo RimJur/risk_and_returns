@@ -124,7 +124,7 @@ def save_returns_chart(df: pl.DataFrame, file_name: str) -> None:
         .properties(width=800, title="Annual Mean Returns of 5 Selected Stocks")
     )
 
-    chart.save(file_name)
+    chart.save(f"returns_charts/{file_name}")
 
 
 def save_std_chart(df: pl.DataFrame, file_name: str) -> None:
@@ -159,7 +159,7 @@ def save_std_chart(df: pl.DataFrame, file_name: str) -> None:
         )
     )
 
-    chart.save(file_name)
+    chart.save(f"std_charts/{file_name}")
 
 
 def construct_index(combined_df: pl.DataFrame) -> pl.DataFrame:
@@ -185,44 +185,44 @@ def construct_index(combined_df: pl.DataFrame) -> pl.DataFrame:
 
 combined_df = concat_selected_tickers(TICKERS)
 index_df = construct_index(combined_df)
-# save_returns_chart(combined_df, "returns_chart.html")
-# save_returns_chart(
-#     pl.concat([index_df, concat_selected_tickers([TSLA, SPY])]),
-#     "tsla_returns_comparison.html",
-# )
-# save_returns_chart(
-#     pl.concat([index_df, concat_selected_tickers([HP, SPY])]),
-#     "hp_returns_comparison.html",
-# )
-# save_returns_chart(
-#     pl.concat([index_df, concat_selected_tickers([GME, SPY])]),
-#     "gme_returns_comparison.html",
-# )
-# save_returns_chart(
-#     pl.concat([index_df, concat_selected_tickers([NVDA, SPY])]),
-#     "nvda_returns_comparison.html",
-# )
-# save_returns_chart(
-#     pl.concat([index_df, concat_selected_tickers([BRK_B, SPY])]),
-#     "brkb_returns_comparison.html",
-# )
-# save_std_chart(combined_df, "std_chart.html")
-# save_std_chart(
-#     pl.concat([index_df, concat_selected_tickers([TSLA, SPY])]),
-#     "tsla_std_comparison.html",
-# )
-# save_std_chart(
-#     pl.concat([index_df, concat_selected_tickers([HP, SPY])]), "hp_std_comparison.html"
-# )
-# save_std_chart(
-#     pl.concat([index_df, concat_selected_tickers([GME, SPY])]),
-#     "gme_std_comparison.html",
-# )
-# save_std_chart(
-#     pl.concat([index_df, concat_selected_tickers([NVDA, SPY])]),
-#     "nvda_std_comparison.html",
-# )
-# save_std_chart(
-#     pl.concat([index_df, concat_selected_tickers([BRK_B, SPY])]),
-#     "brkb_std_comparison.html",
-# )
+save_returns_chart(combined_df, "returns_chart.html")
+save_returns_chart(
+    pl.concat([index_df, concat_selected_tickers([TSLA, SPY])]),
+    "tsla_returns_comparison.png",
+)
+save_returns_chart(
+    pl.concat([index_df, concat_selected_tickers([HP, SPY])]),
+    "hp_returns_comparison.png",
+)
+save_returns_chart(
+    pl.concat([index_df, concat_selected_tickers([GME, SPY])]),
+    "gme_returns_comparison.png",
+)
+save_returns_chart(
+    pl.concat([index_df, concat_selected_tickers([NVDA, SPY])]),
+    "nvda_returns_comparison.png",
+)
+save_returns_chart(
+    pl.concat([index_df, concat_selected_tickers([BRK_B, SPY])]),
+    "brkb_returns_comparison.png",
+)
+save_std_chart(combined_df, "std_chart.png")
+save_std_chart(
+    pl.concat([index_df, concat_selected_tickers([TSLA, SPY])]),
+    "tsla_std_comparison.png",
+)
+save_std_chart(
+    pl.concat([index_df, concat_selected_tickers([HP, SPY])]), "hp_std_comparison.png"
+)
+save_std_chart(
+    pl.concat([index_df, concat_selected_tickers([GME, SPY])]),
+    "gme_std_comparison.png",
+)
+save_std_chart(
+    pl.concat([index_df, concat_selected_tickers([NVDA, SPY])]),
+    "nvda_std_comparison.png",
+)
+save_std_chart(
+    pl.concat([index_df, concat_selected_tickers([BRK_B, SPY])]),
+    "brkb_std_comparison.png",
+)
